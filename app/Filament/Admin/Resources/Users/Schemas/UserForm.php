@@ -3,6 +3,7 @@
 namespace App\Filament\Admin\Resources\Users\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Group;
@@ -11,6 +12,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Facades\Hash;
 use Slimani\MediaManager\Form\MediaPicker;
+use Slimani\MediaManager\Form\RichEditor\MediaManagerRichContentPlugin;
 
 class UserForm
 {
@@ -36,6 +38,18 @@ class UserForm
                                     DateTimePicker::make('email_verified_at')
                                         ->label('Email Verified At'),
                                 ])->columns(2),
+
+                            Section::make('Resume')
+                                ->icon(Heroicon::DocumentText)
+                                ->description('Detailed professional resume.')
+                                ->schema([
+                                    RichEditor::make('resume')
+                                        ->label('Resume Content')
+                                        ->columnSpanFull()
+                                        ->plugins([
+                                            MediaManagerRichContentPlugin::make(),
+                                        ]),
+                                ]),
 
                             Section::make('Security')
                                 ->icon(Heroicon::Key)
@@ -68,6 +82,7 @@ class UserForm
                                         ->multiple()
                                         ->directory('User/Attachments'),
                                 ]),
+
                         ])->columnSpan(1),
                     ]),
             ]);

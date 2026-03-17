@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
+use Filament\Forms\Components\RichEditor\Models\Concerns\InteractsWithRichContent;
+use Filament\Forms\Components\RichEditor\Models\Contracts\HasRichContent;
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,12 +14,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Slimani\MediaManager\Concerns\InteractsWithMediaFiles;
-use Slimani\MediaManager\Models\File;
+use Slimani\MediaManager\Form\RichEditor\FileAttachmentProviders\MediaManagerFileAttachmentProvider;
 
-class User extends Authenticatable implements HasAvatar
+class User extends Authenticatable implements HasAvatar, HasRichContent
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, InteractsWithMediaFiles, Notifiable, TwoFactorAuthenticatable;
+    use HasFactory, InteractsWithMediaFiles, InteractsWithRichContent, Notifiable, TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -30,6 +32,7 @@ class User extends Authenticatable implements HasAvatar
         'password',
         'avatar_id',
         'cv_id',
+        'resume',
     ];
 
     /**
@@ -58,9 +61,19 @@ class User extends Authenticatable implements HasAvatar
         ];
     }
 
+    public function setUpRichContent(): void
+    {
+        $this->registerRichContent('resume')
+            ->fileAttachmentProvider(
+                MediaManagerFileAttachmentProvider::make()
+                    ->collection('preview')
+                    ->directory('User/Resumes')
+            );
+    }
+
     public function avatar(): BelongsTo
     {
-        return $this->belongsTo(File::class, 'avatar_id');
+        return $this->mediaFile('avatar_id');
     }
 
     public function cv(): BelongsTo

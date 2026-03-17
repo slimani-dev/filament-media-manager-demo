@@ -2,6 +2,7 @@
 
 namespace App\Filament\Admin\Resources\Users\Schemas;
 
+use App\Models\User;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Group;
@@ -31,6 +32,11 @@ class UserInfolist
                                     TextEntry::make('email_verified_at')
                                         ->label('Email Verified At')
                                         ->dateTime(),
+                                    TextEntry::make('resume')
+                                        ->label('Resume Content')
+                                        ->html()
+                                        ->state(fn (User $record): string => $record->renderRichContent('resume'))
+                                        ->columnSpanFull(),
                                 ])->columns(2),
                         ])->columnSpan(2),
 
