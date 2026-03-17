@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Slimani\MediaManager\Models\File;
+use Slimani\MediaManager\Models\Folder;
 
 class FilesSeeder extends Seeder
 {
@@ -12,11 +13,11 @@ class FilesSeeder extends Seeder
      */
     public function run(): void
     {
-        $folder1 = \Slimani\MediaManager\Models\Folder::create(['name' => 'Project Images']);
-        $folder2 = \Slimani\MediaManager\Models\Folder::create(['name' => 'Documents']);
-        $subfolder = \Slimani\MediaManager\Models\Folder::create(['name' => 'Logo', 'parent_id' => $folder1->id]);
+        $folder1 = Folder::create(['name' => 'Project Images']);
+        $folder2 = Folder::create(['name' => 'Documents']);
+        $subfolder = Folder::create(['name' => 'Logo', 'parent_id' => $folder1->id]);
 
-        $file1 = \Slimani\MediaManager\Models\File::create([
+        $file1 = File::create([
             'name' => 'Main Banner',
             'folder_id' => $folder1->id,
             'size' => 1024,
@@ -32,7 +33,7 @@ class FilesSeeder extends Seeder
             // Fallback if network is unavailable
         }
 
-        $file2 = \Slimani\MediaManager\Models\File::create([
+        $file2 = File::create([
             'name' => 'Project Specs',
             'folder_id' => $folder2->id,
             'size' => 2048,
@@ -41,7 +42,11 @@ class FilesSeeder extends Seeder
             'uploaded_by_user_id' => 1,
         ]);
 
-        // Note: For PDF we might just use a placeholder text file renamed if we want a real file, 
-        // or just skip if we don't have a reliable PDF URL.
+        try {
+            $file2->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/commons/d/d3/Test.pdf')
+                ->toMediaCollection('default');
+        } catch (\Exception $e) {
+            // Fallback if network is unavailable
+        }
     }
 }

@@ -4,15 +4,20 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
+use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
+use Slimani\MediaManager\Concerns\InteractsWithMediaFiles;
+use Slimani\MediaManager\Models\File;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasAvatar
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable, TwoFactorAuthenticatable;
+    use HasFactory, InteractsWithMediaFiles, Notifiable, TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +28,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar_id',
+        'cv_id',
     ];
 
     /**
@@ -49,5 +56,25 @@ class User extends Authenticatable
             'password' => 'hashed',
             'two_factor_confirmed_at' => 'datetime',
         ];
+    }
+
+    public function avatar(): BelongsTo
+    {
+        return $this->belongsTo(File::class, 'avatar_id');
+    }
+
+    public function cv(): BelongsTo
+    {
+        return $this->mediaFile('cv_id');
+    }
+
+    public function documents(): MorphToMany
+    {
+        return $this->mediaFiles('documents');
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->avatar?->getUrl('thumb') ?? $this->avatar?->getUrl();
     }
 }

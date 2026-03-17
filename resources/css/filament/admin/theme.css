@@ -1,0 +1,6 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+@import '../../../../vendor/slimani/filament-media-manager/resources/css/media-manager.css';
+
+@source '../../../../app/Filament/Admin/**/*';
+@source '../../../../resources/views/filament/admin/**/*';
+@source '../../../../vendor/slimani/filament-media-manager/resources/**/*';
