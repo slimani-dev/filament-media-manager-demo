@@ -16,7 +16,7 @@ class FilesSeeder extends Seeder
         $folder2 = \Slimani\MediaManager\Models\Folder::create(['name' => 'Documents']);
         $subfolder = \Slimani\MediaManager\Models\Folder::create(['name' => 'Logo', 'parent_id' => $folder1->id]);
 
-        \Slimani\MediaManager\Models\File::create([
+        $file1 = \Slimani\MediaManager\Models\File::create([
             'name' => 'Main Banner',
             'folder_id' => $folder1->id,
             'size' => 1024,
@@ -25,7 +25,14 @@ class FilesSeeder extends Seeder
             'uploaded_by_user_id' => 1,
         ]);
 
-        \Slimani\MediaManager\Models\File::create([
+        try {
+            $file1->addMediaFromUrl('https://picsum.photos/1200/800')
+                ->toMediaCollection('default');
+        } catch (\Exception $e) {
+            // Fallback if network is unavailable
+        }
+
+        $file2 = \Slimani\MediaManager\Models\File::create([
             'name' => 'Project Specs',
             'folder_id' => $folder2->id,
             'size' => 2048,
@@ -33,5 +40,8 @@ class FilesSeeder extends Seeder
             'mime_type' => 'application/pdf',
             'uploaded_by_user_id' => 1,
         ]);
+
+        // Note: For PDF we might just use a placeholder text file renamed if we want a real file, 
+        // or just skip if we don't have a reliable PDF URL.
     }
 }
