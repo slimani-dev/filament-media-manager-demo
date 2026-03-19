@@ -18,7 +18,7 @@
         "laravel/tinker": "^2.10.1",
         "laravel/wayfinder": "^0.1.9",
         "php-ffmpeg/php-ffmpeg": "^1.4",
-        "slimani/filament-media-manager": "dev-main"
+        "slimani/filament-media-manager": "^v0.9.7"
     },
     "require-dev": {
         "deployer/deployer": "^7.5",

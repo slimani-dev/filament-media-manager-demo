@@ -18,9 +18,9 @@ class MediaShowcaseSeeder extends Seeder
 
         // 1. Define Simplified Folders
         $folders = [
-            'Images' => Folder::firstOrCreate(['name' => 'Showcase Images']),
-            'Videos' => Folder::firstOrCreate(['name' => 'Showcase Videos']),
-            'Documents' => Folder::firstOrCreate(['name' => 'Showcase Documents']),
+            'Images' => Folder::firstOrCreate(['name' => 'Images']),
+            'Videos' => Folder::firstOrCreate(['name' => 'Videos']),
+            'Documents' => Folder::firstOrCreate(['name' => 'Documents']),
         ];
 
         // 2. Define Media Items (Folders & Root)
