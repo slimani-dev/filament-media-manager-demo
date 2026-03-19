@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d385f527abf5d1246035c7c509deeabd",
+    "content-hash": "97143d680ee8e6cfcf31f5ed62bf15fc",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -5882,17 +5882,11 @@
         },
         {
             "name": "slimani/filament-media-manager",
-            "version": "v0.9.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/slimani-dev/filament-media-manager.git",
-                "reference": "5033563e7d430eb20595ea119bb7c1e381363e58"
-            },
+            "version": "dev-main",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/slimani-dev/filament-media-manager/zipball/5033563e7d430eb20595ea119bb7c1e381363e58",
-                "reference": "5033563e7d430eb20595ea119bb7c1e381363e58",
-                "shasum": ""
+                "type": "path",
+                "url": "../does/media-manager",
+                "reference": "5033563e7d430eb20595ea119bb7c1e381363e58"
             },
             "require": {
                 "codewithdennis/filament-select-tree": "^4.0",
@@ -5929,15 +5923,30 @@
                     "Slimani\\MediaManager\\Database\\Seeders\\": "database/seeders/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Slimani\\MediaManager\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "pint": [
+                    "vendor/bin/pint"
+                ],
+                "analyze": [
+                    "vendor/bin/phpstan analyse"
+                ],
+                "test": [
+                    "vendor/bin/pest"
+                ]
+            },
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Mohamed Slimani",
-                    "email": "mohamed@slimani.dev",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "mohamed@slimani.dev"
                 }
             ],
             "description": "A media manager plugin for Filament.",
@@ -5952,7 +5961,9 @@
                 "issues": "https://github.com/slimani-dev/filament-media-manager/issues",
                 "source": "https://github.com/slimani-dev/filament-media-manager"
             },
-            "time": "2026-03-19T11:15:46+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "spatie/image",
@@ -13116,7 +13127,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "slimani/filament-media-manager": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
