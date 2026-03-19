@@ -2,7 +2,6 @@
 
 namespace App\Filament\Admin\Resources\Users\Schemas;
 
-use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid;
@@ -35,8 +34,6 @@ class UserForm
                                         ->email()
                                         ->required()
                                         ->unique(ignoreRecord: true),
-                                    DateTimePicker::make('email_verified_at')
-                                        ->label('Email Verified At'),
                                 ])->columns(2),
 
                             Section::make('Resume')
@@ -47,7 +44,8 @@ class UserForm
                                         ->label('Resume Content')
                                         ->columnSpanFull()
                                         ->plugins([
-                                            MediaManagerRichContentPlugin::make(),
+                                            MediaManagerRichContentPlugin::make()
+                                                ->acceptedFileTypes(['image/*']),
                                         ]),
                                 ]),
 
