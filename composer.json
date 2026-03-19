@@ -21,6 +21,7 @@
         "slimani/filament-media-manager": "dev-main"
     },
     "require-dev": {
+        "deployer/deployer": "^7.5",
         "fakerphp/faker": "^1.23",
         "laravel/boost": "^2.3",
         "laravel/pail": "^1.2.2",
@@ -104,12 +105,6 @@
             "dont-discover": []
         }
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../does/media-manager"
-        }
-    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
