@@ -5882,16 +5882,16 @@
         },
         {
             "name": "slimani/filament-media-manager",
-            "version": "v0.9.8",
+            "version": "v0.9.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimani-dev/filament-media-manager.git",
-                "reference": "c1bd99aa145845f36e73169e4eac291d23438c15"
+                "reference": "e4f9e2422e26e89fd6da67159e5e6a53eef06798"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimani-dev/filament-media-manager/zipball/c1bd99aa145845f36e73169e4eac291d23438c15",
-                "reference": "c1bd99aa145845f36e73169e4eac291d23438c15",
+                "url": "https://api.github.com/repos/slimani-dev/filament-media-manager/zipball/e4f9e2422e26e89fd6da67159e5e6a53eef06798",
+                "reference": "e4f9e2422e26e89fd6da67159e5e6a53eef06798",
                 "shasum": ""
             },
             "require": {
@@ -5952,7 +5952,7 @@
                 "issues": "https://github.com/slimani-dev/filament-media-manager/issues",
                 "source": "https://github.com/slimani-dev/filament-media-manager"
             },
-            "time": "2026-03-19T15:49:12+00:00"
+            "time": "2026-03-19T17:50:30+00:00"
         },
         {
             "name": "spatie/image",
