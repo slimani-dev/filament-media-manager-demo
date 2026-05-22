@@ -63,7 +63,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 CookieConsentPlugin::make(),
-                MediaManagerPlugin::make(),
+                MediaManagerPlugin::make()
+                    ->withVideoThumbnails(),
                 QuickLoginPlugin::make(),
             ])
             ->viteTheme('resources/css/filament/admin/theme.css');
