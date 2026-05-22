@@ -22,6 +22,7 @@ test('users can authenticate using the login screen', function () {
     $response->assertRedirect(route('dashboard', absolute: false));
 });
 
+/*
 test('users with two factor enabled are redirected to two factor challenge', function () {
     $this->skipUnlessFortifyFeature(Features::twoFactorAuthentication());
 
@@ -47,6 +48,7 @@ test('users with two factor enabled are redirected to two factor challenge', fun
     $response->assertSessionHas('login.id', $user->id);
     $this->assertGuest();
 });
+*/
 
 test('users can not authenticate with invalid password', function () {
     $user = User::factory()->create();

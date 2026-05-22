@@ -10,25 +10,21 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
-        "filament/filament": "^4.0",
-        "filament/spatie-laravel-media-library-plugin": "^4.0",
+        "filament/filament": "4.9.1",
+        "filament/spatie-laravel-media-library-plugin": "4.9.1",
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/fortify": "^1.30",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1",
+        "laravel/tinker": "^2.10",
         "laravel/wayfinder": "^0.1.9",
         "livewire/livewire": "^3.0",
         "php-ffmpeg/php-ffmpeg": "^1.4",
-        "slimani/filament-media-manager": "*"
+        "slimani/filament-cookie-consent": "^0.1.0",
+        "slimani/filament-media-manager": "^0.12.1",
+        "slimani/filament-quick-login": "^0.3.1"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/home/moh/Documents/Projects/does/media-manager"
-        }
-    ],
     "require-dev": {
-        "deployer/deployer": "^7.5",
+        "deployer/deployer": "^8.0",
         "fakerphp/faker": "^1.23",
         "laravel/boost": "^2.3",
         "laravel/pail": "^1.2.2",

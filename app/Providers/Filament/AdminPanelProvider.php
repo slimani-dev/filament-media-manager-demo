@@ -19,7 +19,9 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Slimani\CookieConsent\CookieConsentPlugin;
 use Slimani\MediaManager\MediaManagerPlugin;
+use Slimani\QuickLogin\QuickLoginPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -60,7 +62,9 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugins([
+                CookieConsentPlugin::make(),
                 MediaManagerPlugin::make(),
+                QuickLoginPlugin::make(),
             ])
             ->viteTheme('resources/css/filament/admin/theme.css');
     }
