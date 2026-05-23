@@ -17,6 +17,7 @@
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10",
         "laravel/wayfinder": "^0.1.9",
+        "league/flysystem-aws-s3-v3": "^3.34",
         "livewire/livewire": "^3.0",
         "php-ffmpeg/php-ffmpeg": "^1.4",
         "slimani/filament-cookie-consent": "^0.1.0",
