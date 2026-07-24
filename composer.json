@@ -10,8 +10,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
-        "filament/filament": "4.9.1",
-        "filament/spatie-laravel-media-library-plugin": "4.9.1",
+        "filament/filament": "^4.12",
+        "filament/spatie-laravel-media-library-plugin": "^4.12",
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/fortify": "^1.30",
         "laravel/framework": "^12.0",
@@ -21,7 +21,7 @@
         "livewire/livewire": "^3.0",
         "php-ffmpeg/php-ffmpeg": "^1.4",
         "slimani/filament-cookie-consent": "^0.1.0",
-        "slimani/filament-media-manager": "^0.12.1",
+        "slimani/filament-media-manager": "^0.14.2",
         "slimani/filament-quick-login": "^0.3.1"
     },
     "require-dev": {
