@@ -7,16 +7,20 @@ use Database\Factories\UserFactory;
 use Filament\Forms\Components\RichEditor\Models\Concerns\InteractsWithRichContent;
 use Filament\Forms\Components\RichEditor\Models\Contracts\HasRichContent;
 use Filament\Models\Contracts\HasAvatar;
+use Filament\Models\Contracts\HasTenants;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Collection;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Slimani\MediaManager\Concerns\InteractsWithMediaFiles;
 use Slimani\MediaManager\Form\RichEditor\FileAttachmentProviders\MediaManagerFileAttachmentProvider;
 
-class User extends Authenticatable implements HasAvatar, HasRichContent
+class User extends Authenticatable implements HasAvatar, HasRichContent, HasTenants
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, InteractsWithMediaFiles, InteractsWithRichContent, Notifiable, TwoFactorAuthenticatable;
@@ -89,5 +93,15 @@ class User extends Authenticatable implements HasAvatar, HasRichContent
     public function getFilamentAvatarUrl(): ?string
     {
         return $this->avatar?->getUrl('thumb') ?? $this->avatar?->getUrl();
+    }
+
+    public function canAccessTenant(Model $tenant): bool
+    {
+        return true;
+    }
+
+    public function getTenants(Panel $panel): array|Collection
+    {
+        return Tenant::query()->get();
     }
 }

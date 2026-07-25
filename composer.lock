@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf988c9eaaf89a896d4ee321a059f9cb",
+    "content-hash": "4cb746402cfcf3272ff69034df9ca526",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -6664,16 +6664,16 @@
         },
         {
             "name": "slimani/filament-media-manager",
-            "version": "v0.14.3",
+            "version": "v0.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimani-dev/filament-media-manager.git",
-                "reference": "6969efcfc8f5c5efe6486119824743fa10300841"
+                "reference": "16a545dbd149b2f0c51365c223cadea9d67a820e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimani-dev/filament-media-manager/zipball/6969efcfc8f5c5efe6486119824743fa10300841",
-                "reference": "6969efcfc8f5c5efe6486119824743fa10300841",
+                "url": "https://api.github.com/repos/slimani-dev/filament-media-manager/zipball/16a545dbd149b2f0c51365c223cadea9d67a820e",
+                "reference": "16a545dbd149b2f0c51365c223cadea9d67a820e",
                 "shasum": ""
             },
             "require": {
@@ -6734,7 +6734,7 @@
                 "issues": "https://github.com/slimani-dev/filament-media-manager/issues",
                 "source": "https://github.com/slimani-dev/filament-media-manager"
             },
-            "time": "2026-07-24T02:10:28+00:00"
+            "time": "2026-07-25T12:21:52+00:00"
         },
         {
             "name": "slimani/filament-quick-login",

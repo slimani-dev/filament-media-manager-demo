@@ -21,7 +21,7 @@
         "livewire/livewire": "^3.0",
         "php-ffmpeg/php-ffmpeg": "^1.4",
         "slimani/filament-cookie-consent": "^0.1.0",
-        "slimani/filament-media-manager": "^0.14.2",
+        "slimani/filament-media-manager": "^0.15.0",
         "slimani/filament-quick-login": "^0.3.1"
     },
     "require-dev": {
